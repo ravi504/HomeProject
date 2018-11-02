@@ -1,8 +1,62 @@
-*{
-	background-color:lightgreen;
-	text-align:center;
+#todo_sec{
+	width:500px;
+	margin:5px 5px; 	
+}
+#todo_list{
+	margin:15px;
+}
+#my_list{
+	margin:18px;
+	padding:0px;
+	//border:1px solid;
 	
 }
-li{
-	text-decoration:none;
+#my_list li{
+	position:relative;
+	padding:10px;
+	list-style:none;
+	width:450px;
+	cursor:pointer;
+	margin:2px 0px;
+}#my_list li:nth-child(odd){
+	background:#f9f9f9;
+}
+#my_list li:hover{
+	background:#ddd;
+}
+
+.clos_e{
+	position:absolute;
+	top:0px;
+	left:412px;
+	padding:10px 11px;
+	
+}
+.clos_e:hover{
+	background:grey;
+	color:white;
+}
+#input_name{
+	width: 343px;
+    text-align: center;
+    font-size: 15px;
+    border-radius: 0px;
+    padding: 5px;
+	
+}
+
+.add_cls{
+	width:120px;
+	float:right;
+	background:#d9d9d9;
+	color:#555;
+	text-align: center;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 0px;
+	transition:0.3s;
+	padding:5px;
+}
+.add_cls:hover{
+	background:#bbb;
 }
