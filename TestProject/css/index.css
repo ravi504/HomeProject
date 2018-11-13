@@ -1,23 +1,27 @@
-#todo_sec{
-	width:500px;
-	margin:5px 5px; 	
-}
-#todo_list{
-	margin:15px;
+
+#con{
+	float:left;
+	width:40%;
+	margin:40px;
+	padding:11px;
+	border:1px solid lightgrey;
 }
 #my_list{
-	margin:18px;
+	margin:10px 0px;
 	padding:0px;
 	//border:1px solid;
 	
 }
 #my_list li{
 	position:relative;
-	padding:10px;
+	//padding:10px;
 	list-style:none;
-	width:450px;
+	//width:450px;
 	cursor:pointer;
 	margin:2px 0px;
+	font-size:18px;
+	font-family:Comic sans ms;
+	
 }#my_list li:nth-child(odd){
 	background:#f9f9f9;
 }
@@ -25,20 +29,39 @@
 	background:#ddd;
 }
 
+#my_list li.checked{
+	background:#888;
+	color:#fff;
+	text-decoration:line-through;
+}
+#my_list li.checked::before {
+    content: '';
+    position: absolute;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 4px 0;
+    top: 14px;
+    left: 7px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
 .clos_e{
 	position:absolute;
 	top:0px;
-	left:412px;
-	padding:10px 11px;
-	
+	left:444px;
+	padding:10px 12px;
+	margin-top:2px;
 }
 .clos_e:hover{
 	background:grey;
 	color:white;
 }
 #input_name{
-	width: 343px;
-    text-align: center;
+	width: 15px;
+	height:45px;
+	margin:6px;
+    text-align: left;
     font-size: 15px;
     border-radius: 0px;
     padding: 5px;
@@ -56,7 +79,46 @@
     border-radius: 0px;
 	transition:0.3s;
 	padding:5px;
+	margin:12px;
 }
 .add_cls:hover{
 	background:#bbb;
 }
+
+#util_list{
+	float:left;
+	border:1px solid lightgrey;
+	width:53%;
+	//height:500px;
+	margin:38px 0px;	
+}
+.ul_li{
+	padding:0px;
+}
+.ul_li li{
+	width:169px;
+	height:150px;
+	float:left;
+	list-style:none;
+	margin:2px;
+	border-radius:5px;
+	border:1px solid black;
+	cursor:pointer;
+}
+.ul_li li:hover{
+	background:grey;
+	opacity:0.1;
+	text-align:center;
+	font:5px;
+}
+
+img{
+	margin:6px 0px 6px 6px;
+	cursor:pointer;
+}
+img:hover{
+	padding:5px;
+	background:lightblue;
+}
+ 	
+	
