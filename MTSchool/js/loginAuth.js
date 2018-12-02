@@ -3,7 +3,7 @@ function submitSinup_form(){
  let fname = document.getElementById("fname").value;
  let lname = document.getElementById("lname").value;
  let email = document.getElementById("email").value;
- let pas_s = document.getElementById("password").value;
+ let pass = document.getElementById("password").value;
  let mobile = document.getElementById("mobile").value;
  let id = document.getElementById("submit");
  let sin_msg = document.querySelector("sinupMessage");
@@ -36,7 +36,7 @@ function submitSinup_form(){
 	  fname : fname,
 	  lname : lname,
 	  email : email,
-	  pass : pas_s,
+	  pass : pass,
 	  mobile : mobile,
   }
       arr.push(obj);
@@ -59,9 +59,9 @@ function submitSinup_form(){
 	 alert("Enter your email");
 	 email.focus();
 	 return false;
- }else if(pas_s == "" ){
+ }else if(pass == "" ){
 	 alert("Enter your password");
-	 pas_s.focus();
+	 pass.focus();
 	 return false;
  }else if(mobile == "" ){
 	 alert("Enter your mobile number");
