@@ -1,3 +1,6 @@
+body{
+	//background-image: linear-gradient(to right top, #0c4cac, #0079cc, #009ab1, #00b46c, #88c207);
+}
 #header{
 	padding:10px;
 	height:100px;
@@ -165,6 +168,10 @@ h3{
 .bg-darkest {
     background-color: lightgrey!important;
 }
+/* .bg-darkest-syllb{ */
+	/* background-color: lightgrey!important; */
+	
+/* } */
 .justify-content-center {
     justify-content: center!important;
 	display: flex;
@@ -219,3 +226,91 @@ ul {
     /* box-sizing: border-box; */
 /* } */
 
+
+.img-thumbnail {
+    padding: .5rem;
+	width:100%;
+    background-color: #f8f9fa;
+    border: 0 solid #dee2e6;
+    border-radius: .375rem;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+}
+/* .img-fluid, .img-thumbnail { */
+    /* max-width: 100%; */
+    /* height: auto; */
+/* } */
+img, svg {
+    vertical-align: middle;
+}
+
+.justify-content{
+	margin:15px;
+	border-top: 1px solid #b1b0b0
+}
+.col_h2{
+	//float:right;
+}
+
+@media (min-width: 768px) {
+	.img-thumbnail{
+		width:100%;
+		//margin: 60px 10px 0px 37px;
+		//margin: 22px 21px 0px 23px;
+		}
+	}
+	
+/* Syllabus part */
+.scrollspy-example {
+    position: relative;
+    height: 100%;
+    margin-top: .5rem;
+	margin-left: .5em;
+    overflow: auto;
+}
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}	
+.scrollspy-example p{
+	background: lightgrey;
+    font-size: 15px;
+    padding: 30px;
+	margin: -8px 0px 30px 0px;
+	height: auto;
+    width: 99%;
+    font-family: Times, Times New Roman, Georgia; 
+	border-bottom:1px solid black;
+}	
+.scrollspy-example h4{
+	font-size: 23px;
+    font-family: cursive;
+    background: gainsboro;
+    line-height: 36px;
+    padding: 5px;
+	width: 99%;
+}
+.lis_style{
+    margin: 16px 0px 0px 4px;
+}
+.bd-example{
+	border-bottom:2px solid black;
+}
+
+/* Gallery part */
+
+.gallery_div img{
+	width: 30%;
+    height: 50%;
+    padding: 3px;
+    float: right;
+	cursor:pointer;
+	/* transition: all .2s ease-in-out; */
+	/* border-radius: calc(.25rem - 1px); */
+}
+.gallery_div img:hover{
+	background:grey;
+	
+}
