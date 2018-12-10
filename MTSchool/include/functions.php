@@ -27,7 +27,7 @@ function login($email,$password,$mysqli){
 	
 	//using prepare statement, SQL injection is not possible
 	//stmt is stand for statement.
-	if ($stmt = mysqli->prepare("SELECT id,username,password from member
+	if ($stmt = $mysqli->prepare("SELECT id,username,password from member
 	     WHERE email = ? LIMIT 1")){
 		 $stmt->bind_param('s', $email);//bind email to parameter. Here 's' stand for string.
 		 $stmt->execute();
@@ -40,7 +40,7 @@ function login($email,$password,$mysqli){
 		 if ($stmt->num_rows == 1){
 			 // If the user exists we check if the account is locked
             // from too many login attempts 
-			if (checkbrute($user_id,mysqli) === true){
+			if (checkbrute($user_id,$mysqli) === true){
 				 // Account is locked 
                 // Send an email to user saying their account is locked
                 return false;
@@ -79,7 +79,7 @@ function checkbrute($user_id, $mysqli){
 	//all login attemps are counted from the past 2 hours.
 	$valid_attemps = $now - (2 * 60 * 60);
 	
-	if ($stmt = mysqli->prepare("SELECT time FROM login_attempts
+	if ($stmt = $mysqli->prepare("SELECT time FROM login_attempts
 	                     WHERE user_id = ? AND time > '$valid_attemps'")){
 		$stmt->bind_param('i', $user_id);
 		

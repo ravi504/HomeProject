@@ -2,7 +2,7 @@
 
 define("HOST", "localhost");
 define("USER", "root");
-define("PASS", "");
+define("PASSWORD", "");
 define("DATABASE", "secure_login");
 
 define("CAN_REGISTER", "any");
