@@ -25,7 +25,7 @@ if (isset($_POST['username'], $_POST['email'], $_POST['p']){
       // breaking these rules.
 	  
 	  $prep_stmt = "SELECT id FROM member WHERE username = ? LIMIT 1";
-	  $stmp = mysqli->prepare($prep_stmt);
+	  $stmp = $mysqli->prepare($prep_stmt);
 	  
 	  if ($stmt){
 		  $stmt->bind_param('s', $username);
