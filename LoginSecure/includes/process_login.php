@@ -9,9 +9,9 @@ if (isset($_POST['email'], $_POST['password'])){
 	$password = $_POST['password'];
 	
 	 if (login_check($email,$password,$mysqli) == true){
-		 echo $email;
+		 header('Location: ./Welcome.php');
 	 }else{
-		 echo 'login faill';
+		 header('Location: ./index.php');
 	 }
 }else{
 	echo 'Invalid request';

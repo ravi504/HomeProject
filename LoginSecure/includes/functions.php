@@ -17,11 +17,11 @@ function sec_session_start(){
 
 function login_check($email,$password,$mysqli){
           //var_dump($mysqli);
-	 if ($stmt = $mysqli->prepare("SELECT id,password FROM member WHERE email = ? LIMIT 1")){
+	 if ($stmt = $mysqli->prepare("SELECT id,username,password FROM member WHERE email = ? LIMIT 1")){
 		$stmt->bind_param('s',$email);
 		$stmt->execute();
 		$stmt->store_result();
-		//$stmt->bind_result($user_id,$db_password);
+		//$stmt->bind_result($user_id,$username,$db_password);
 		//$stmt->fetch();
 		
 		if ($stmt->num_rows == 1){
@@ -29,6 +29,7 @@ function login_check($email,$password,$mysqli){
                  $stmt->fetch();
 
 			if ($password == $db_password){
+				$SESSION['username'] = $username;
 				return true;
 			}else{
 				return false;
