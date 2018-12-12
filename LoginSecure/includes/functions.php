@@ -6,23 +6,28 @@ function sec_session_start(){
 	//$secure = SECURE;
 	//$httponly = true;
 	
-	$cookieParam = session_get_cookie_params;
-	session_get_cookie_params($cookieParam['lifetime'], $cookieParam['path'], $cookieParam['domain']);
-	
-	session_name = $session_name;
+	 $cookieParams = session_get_cookie_params();
+         session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"]);
+
+
+	session_name($session_name);
 	session_start();
 	session_regenerate_id();
 }
 
 function login_check($email,$password,$mysqli){
-	 if ($stmt = $mysqli->prepare("SELECT id,password FROM member WHERE email = ? LIMIT 1");){
-		 $stmt->bind_param('s',$email);
+          //var_dump($mysqli);
+	 if ($stmt = $mysqli->prepare("SELECT id,password FROM member WHERE email = ? LIMIT 1")){
+		$stmt->bind_param('s',$email);
 		$stmt->execute();
 		$stmt->store_result();
-		$stmt->bind_result($user_id,$db_password);
-		$stmt->fetch();
+		//$stmt->bind_result($user_id,$db_password);
+		//$stmt->fetch();
 		
 		if ($stmt->num_rows == 1){
+                 $stmt->bind_result($user_id,$db_password);
+                 $stmt->fetch();
+
 			if ($password == $db_password){
 				return true;
 			}else{

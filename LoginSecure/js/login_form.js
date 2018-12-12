@@ -1,3 +1,3 @@
-function form_check(form,password){
+function form_check(form){
 	form.submit();
 }

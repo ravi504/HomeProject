@@ -8,10 +8,10 @@ if (isset($_POST['email'], $_POST['password'])){
 	$email = $_POST['email'];
 	$password = $_POST['password'];
 	
-	 if (login_ckeck($email,$password,$mysqli) == true){
-		 alert('login success'.$email);
+	 if (login_check($email,$password,$mysqli) == true){
+		 echo $email;
 	 }else{
-		 alert('login faill');
+		 echo 'login faill';
 	 }
 }else{
 	echo 'Invalid request';
