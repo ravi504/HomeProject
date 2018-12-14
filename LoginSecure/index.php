@@ -4,6 +4,7 @@ include_once 'includes/functions.php';
 
 
 sec_session_start();
+//echo $_SESSION['username'];
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,8 @@ sec_session_start();
         <script type="text/JavaScript" src="js/login_form.js"></script> 
     </head>
 <body>
-		
+	<?php echo $_SESSION['username'];?>
+	
         <form action="includes/process_login.php" method="post" name="login_form">                      
             Email: <input type="text" name="email" />
             Password: <input type="password" name="password" id="password"/>

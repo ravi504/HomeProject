@@ -25,23 +25,29 @@ function login_check($email,$password,$mysqli){
 		//$stmt->fetch();
 		
 		if ($stmt->num_rows == 1){
-                 $stmt->bind_result($user_id,$db_password);
+                 $stmt->bind_result($user_id,$username,$db_password);
                  $stmt->fetch();
 
 			if ($password == $db_password){
-				$SESSION['username'] = $username;
+				$_SESSION['username'] = $username;
+                                $_SESSION['login_string'] = $db_password;
 				return true;
 			}else{
 				return false;
 			}
 		}else{
-			alert('no record found');
+			echo 'no record found';
 		}
 	 }else{
-		 alert('could not prepare statement');
+		 echo 'could not prepare statement';
 	 }
-		
-		
-		
+}
+
+function login_session(){
+     if (isset($_SESSION['username'],$_SESSION['email'],$_SESSION['login_string'])){
+        $username = $_SESSION['username'];
+        $email = $_SESSION['email'];
+	$login_string = $_SESSION['login_string'];	
+      }
 }
 ?>
