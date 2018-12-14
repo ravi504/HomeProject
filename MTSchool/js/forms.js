@@ -1,3 +1,8 @@
+function formhash(form){
+	form.submit();	
+}
+
+/*
 function formhash(form, password){
 	// Create a new element input, this will be our hashed password field.
 	var p = document.createElement("input");
@@ -55,3 +60,4 @@ function reg_formhash(form, uid, email, password, conf){
 	 form.submit();
 	 return true;
 }
+*/

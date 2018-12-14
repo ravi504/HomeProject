@@ -4,17 +4,17 @@ include_once 'db_config.php';
 
 function sec_session_start(){
 	$session_name = "sec_session_id"; //custom session name
-	$secure = SECURE;
-	$httponly = true; //this will stop javascript being able to access session id.
+	//$secure = SECURE;
+	//$httponly = true; //this will stop javascript being able to access session id.
 	
 	//now forces session to use only cookies;
-	if (ini_set('session.use_only_cookies', 1) === FALSE){
+	/*if (ini_set('session.use_only_cookies', 1) === FALSE){
 		header("Location: ../error.php?err=could not a safe session (ini_set)");
 		exit();
-	}
+	}*/
 	//get current cookies params.
 	$cookieParams = session_get_cookie_params();
-	session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"], $secure, $httponly);
+	session_set_cookie_params($cookieParams["lifetime"], $cookieParams["path"], $cookieParams["domain"]);
 	
 	//set the session name which set above.
 	session_name($session_name);
@@ -23,13 +23,13 @@ function sec_session_start(){
 }
 
 //Check the email and password on database.
-function login($email,$password,$mysqli){
+function login($username,$password,$mysqli){
 	
 	//using prepare statement, SQL injection is not possible
 	//stmt is stand for statement.
 	if ($stmt = $mysqli->prepare("SELECT id,username,password from member
-	     WHERE email = ? LIMIT 1")){
-		 $stmt->bind_param('s', $email);//bind email to parameter. Here 's' stand for string.
+	     WHERE username = ? LIMIT 1")){
+		 $stmt->bind_param('s', $username);//bind email to parameter. Here 's' stand for string.
 		 $stmt->execute();
 		 $stmt->store_result();
 		 
@@ -37,6 +37,16 @@ function login($email,$password,$mysqli){
 		 $stmt->bind_result($user_id,$username,$db_password);
 		 $stmt->fetch();
 		 
+		 if ($stmt->num_rows == 1){
+			 if ($password == $db_password){
+				 $_SESSION['username'] = $username;
+				 return true;
+			 }
+		 }else{
+			 return false;
+		 }
+		 
+		 /*
 		 if ($stmt->num_rows == 1){
 			 // If the user exists we check if the account is locked
             // from too many login attempts 
@@ -68,10 +78,11 @@ function login($email,$password,$mysqli){
 		 }else{
 			 //no user exits.
 			 return false;
-		 }
+		 }*/
 	}
 }
 
+/*
 function checkbrute($user_id, $mysqli){
 	//get timestap of current time.
 	$now = time();
@@ -172,5 +183,5 @@ function esc_url($url){
 	}
 }
 
-
+*/
 ?>

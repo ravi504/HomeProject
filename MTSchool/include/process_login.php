@@ -4,16 +4,16 @@ include_once 'functions.php';
 
 sec_session_start();
 
-if (isset($_POST['email'],$_POST['p'])){
-	$email = $_POST['email'];
-	$password = $_POST['p'];
+if (isset($_POST['username'],$_POST['pass'])){
+	$username = $_POST['username'];
+	$password = $_POST['pass'];
 	
-	if (login($email,$password,$mysqli == true)){
+	if (login($username,$password,$mysqli == true)){
 		//login sucess
-		header('Location: ../protected_page.php');
+		header('Location: ../stu_pages/welcome.html');
 	}else{
 		//login failed
-		header('Location: ../index.php?error=1');
+		header('Location: ../index.html);
 	}
 	
 }else{
