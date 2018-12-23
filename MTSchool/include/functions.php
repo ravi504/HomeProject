@@ -1,6 +1,6 @@
 <?php
 
-include_once 'db_config.php';
+include_once 'db_conn.php';
 
 function sec_session_start(){
 	$session_name = "sec_session_id"; //custom session name
@@ -22,28 +22,62 @@ function sec_session_start(){
 	session_regenerate_id();
 }
 
+function login($username,$password,$mysqli){
+          //var_dump($mysqli);
+         if ($stmt = $mysqli->prepare("SELECT id,password FROM member WHERE username = $username LIMIT 1")){
+                /*$stmt->bind_param('s',$username);
+                $stmt->execute();
+                $stmt->store_result();
+                //$stmt->bind_result($user_id,$username,$db_password);
+                //$stmt->fetch();
+                //var_dump($stmt);
+                if ($stmt->num_rows == 1){
+                 $stmt->bind_result($user_id,$db_password);
+                 $stmt->fetch();
+
+                        if ($password == $db_password){
+                                //$_SESSION['username'] = $username;
+                                //$_SESSION['login_string'] = $db_password;
+                                return true;
+                        }else{
+                                return false;
+                        }
+                }else{
+                        echo 'no record found';
+                }
+         }else{
+                 echo 'could not prepare statement';
+         }*/
+       echo "123";
+}
+
+
+/*
 //Check the email and password on database.
 function login($username,$password,$mysqli){
-	
+         	
 	//using prepare statement, SQL injection is not possible
 	//stmt is stand for statement.
-	if ($stmt = $mysqli->prepare("SELECT id,username,password from member
-	     WHERE username = ? LIMIT 1")){
+	if ($stmt = $mysqli->prepare("SELECT id,password FROM member WHERE username = ? LIMIT 1")){
 		 $stmt->bind_param('s', $username);//bind email to parameter. Here 's' stand for string.
 		 $stmt->execute();
 		 $stmt->store_result();
 		 
 		 //now get variable from result
-		 $stmt->bind_result($user_id,$username,$db_password);
-		 $stmt->fetch();
+		 //$stmt->bind_result($user_id,$username,$db_password);
+		 //$stmt->fetch();
 		 
 		 if ($stmt->num_rows == 1){
+                     $stmt->bind_result($user_id,$db_password);
+		     $stmt->fetch();	
 			 if ($password == $db_password){
-				 $_SESSION['username'] = $username;
+				 //$_SESSION['username'] = $user_name;
 				 return true;
-			 }
+			 }else{
+                                 return false; 
+                        }
 		 }else{
-			 return false;
+			 echo "no record found";
 		 }
 		 
 		 /*
@@ -79,9 +113,11 @@ function login($username,$password,$mysqli){
 			 //no user exits.
 			 return false;
 		 }*/
-	}
+	/*}else{
+               echo "Prepare error";
+ }
 }
-
+*/
 /*
 function checkbrute($user_id, $mysqli){
 	//get timestap of current time.

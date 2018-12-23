@@ -151,6 +151,9 @@
 </footer>
 
 <!-- loginModal -->
+
+<form action="include/process_login.php" method="POST" name="login_form" id="form_id">
+
 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -161,7 +164,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form action="include/process_login.php" method="post" name="login_form">
+      <!--  <form action="include/process_login.php" method="POST" name="login_form"> -->
           <div class="form-group">
             <label for="user-name" class="col-form-label">UserName:</label>
             <input type="text" class="form-control" id="user_name" name="user">
@@ -174,12 +177,13 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" onclick="formhash(this.form)" id="submit">Login</button>
+        <button type="button" class="btn btn-primary" onclick="formhash(this.form)" id="btn_submit">Login</button>
       </div>
-	  </form>
+	 <!-- </form> -->
     </div>
   </div>
 </div>
+</form>
 
 <!-- SinupModal -->
 <div class="modal fade" id="sinupModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

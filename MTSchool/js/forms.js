@@ -1,5 +1,9 @@
 function formhash(form){
-	form.submit();	
+//	alert("OK");
+ var btn_id = document.getElementById("btn_submit");
+form.submit();
+btn_id.setAttribute("data-dissmiss", "modal");
+
 }
 
 /*
